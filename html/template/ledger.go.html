@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Ledger - Convey</title>
+    </head>
+
+    <body>
+        <div class="content">
+            <div class="header">
+                <a href="https://aletheiaware.com">
+                    <img src="logo.svg" width="48" height="48" />
+                </a>
+            </div>
+
+            <h1>Ledger</h1>
+
+            <table class="center" width="100%">
+                <tr>
+                    <th><a href="ledger?sort=alias">Alias</a></th>
+                    <th><a href="ledger?sort=minted">Minted</a></th>
+                    <th><a href="ledger?sort=burned">Burned</a></th>
+                    <th><a href="ledger?sort=bought">Bought</a></th>
+                    <th><a href="ledger?sort=sold">Sold</a></th>
+                    <th><a href="ledger?sort=earned">Earned</a></th>
+                    <th><a href="ledger?sort=spent">Spent</a></th>
+                    <th><a href="ledger?sort=balance">Balance</a></th>
+                </tr>
+                {{ range $key, $value := .Entries }}
+                    <tr style="text-align:center">
+                        <td>{{ $value.Alias }}</td>
+                        <td>{{ $value.Minted }}</td>
+                        <td>{{ $value.Burned }}</td>
+                        <td>{{ $value.Bought }}</td>
+                        <td>{{ $value.Sold }}</td>
+                        <td>{{ $value.Earned }}</td>
+                        <td>{{ $value.Spent }}</td>
+                        <td>{{ $value.Balance }}</td>
+                    </tr>
+                {{ end }}
+            </table>
+
+            <div class="footer">
+                <ul class="nav">
+                    <li><a href="account">Account</a></li>
+                    <li><a href="compose">Compose</a></li>
+                    <li><a href="recent">Recent</a></li>
+                    <li><a href="best">Best</a></li>
+                    <!--<li><a href="digest">Digest</a></li>-->
+                </ul>
+                <ul class="nav">
+                    <li><a href="channels">Channels</a></li>
+                </ul>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="mailto:support@aletheiaware.com">Support</a></li>
+                </ul>
+                <p class="meta">© 2020 Aletheia Ware LLC.  All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>

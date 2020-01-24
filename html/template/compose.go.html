@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Compose - Convey</title>
+    </head>
+
+    <body>
+        <div class="content">
+            <div class="header">
+                <a href="https://aletheiaware.com">
+                    <img src="logo.svg" width="48" height="48" />
+                </a>
+            </div>
+
+            {{ if eq .ConversationHash "" }}
+
+                <h1>Compose</h1>
+
+                <p class="subtitle">What do you want to Convey to the World?</p>
+
+            {{ else }}
+
+                <h1>Reply</h1>
+
+                <p class="meta">{{ .Timestamp }} {{ .Author }} {{ .Cost }}</p>
+
+                {{ .Content }}
+
+            {{ end }}
+
+            <form action="/compose" method="post">
+                <!-- TODO(v3) <input type="hidden" id="type" name="type" value="{ { .Type } }" /> -->
+                <!-- TODO(v5) Visibility: Public, Private to Recipient(s) -->
+                <table class="center">
+                    {{ if eq .ConversationHash "" }}
+                        <tr>
+                            <td style="text-align:right;">
+                                <label for="topic">Topic:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="topic" name="topic" />
+                            </td>
+                        </tr>
+                        <!-- TODO(v4) Category
+                        <tr>
+                            <td style="text-align:right;">
+                                <label for="category">Category:</label>
+                            </td>
+                            <td>
+                                <select id="category" name="category">
+                                    { { range $key, $value := .Category } }
+                                        <option value="{ { $key } }">{ { $key } }</option>
+                                    { { end } }
+                                </select>
+                            </td>
+                        </tr>
+                        -->
+                        <tr>
+                            <td style="text-align:right;">
+                                <label for="content">Content:</label>
+                            </td>
+                            <td>
+                                <textarea rows="5" cols="50" id="content" name="content"></textarea>
+                            </td>
+                        </tr>
+                    {{ else }}
+                        <input type="hidden" id="conversation" name="conversation" value="{{ .ConversationHash }}" />
+                        <input type="hidden" id="message" name="message" value="{{ .MessageHash }}" />
+                        <tr>
+                            <td colspan="2" style="text-align:center;">
+                                <textarea rows="5" cols="50" id="content" name="content"></textarea>
+                            </td>
+                        </tr>
+                    {{ end }}
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                            <input type="submit" value="Preview" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <div class="footer">
+                <ul class="nav">
+                    <li><a href="account">Account</a></li>
+                    <li><a href="recent">Recent</a></li>
+                    <li><a href="best">Best</a></li>
+                    <!--<li><a href="digest">Digest</a></li>-->
+                </ul>
+                <ul class="nav">
+                    <li><a href="channels">Channels</a></li>
+                    <li><a href="ledger">Ledger</a></li>
+                </ul>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="mailto:support@aletheiaware.com">Support</a></li>
+                </ul>
+                <p class="meta">© 2020 Aletheia Ware LLC.  All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>

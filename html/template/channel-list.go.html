@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Channels - Convey</title>
+    </head>
+
+    <body>
+        <div class="content">
+            <div class="header">
+                <a href="https://aletheiaware.com">
+                    <img src="logo.svg" width="48" height="48" />
+                </a>
+            </div>
+
+            <h1>Convey</h1>
+
+            <table class="center" width="100%">
+                <tr>
+                    <th></th>
+                    <th>Channel</th>
+                    <th>Timestamp</th>
+                    <th>Head</th>
+                </tr>
+                {{ range $key, $value := .Channel }}
+                    <tr>
+                        <td>{{ $key }}
+                        <td><a href="channel?channel={{ $value.Name }}">{{ $value.Name }}</a></td>
+                        <td>{{ $value.Timestamp }}</td>
+                        <td><a href="block?channel={{ $value.Name }}&hash={{ $value.Hash }}">{{ $value.Hash }}</a></td>
+                    </tr>
+                {{ end }}
+            </table>
+
+            <div class="footer">
+                <ul class="nav">
+                    <li><a href="account">Account</a></li>
+                    <li><a href="compose">Compose</a></li>
+                    <li><a href="recent">Recent</a></li>
+                    <li><a href="best">Best</a></li>
+                    <!--<li><a href="digest">Digest</a></li>-->
+                </ul>
+                <ul class="nav">
+                    <li><a href="ledger">Ledger</a></li>
+                </ul>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="mailto:support@aletheiaware.com">Support</a></li>
+                </ul>
+                <p class="meta">© 2020 Aletheia Ware LLC.  All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>

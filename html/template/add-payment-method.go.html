@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Add Payment Method - Convey</title>
+    </head>
+
+    <body>
+        <div class="content">
+            <div class="header">
+                <a href="https://aletheiaware.com">
+                    <img src="logo.svg" width="48" height="48" />
+                </a>
+            </div>
+
+            <h1>Add Payment Method</h1>
+
+            {{ if ne .Error "" }}
+                <p class="error">{{ .Error }}</p>
+            {{ end }}
+
+            <form action="/add-payment-method" method="post" id="add-payment-method-form">
+                <!-- TODO(v2) add CSRF token
+                <input type="hidden" id="token" name="token" value="{ { .Token } }" />
+                 -->
+                <table class="center">
+                    <input type="hidden" id="payment" name="payment" />
+                    <tr>
+                        <th style="text-align:right;">
+                            <label for="card-holder-name">Card Holder Name:</label>
+                        </th>
+                        <td>
+                            <input type="text" id="card-holder-name" name="name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:right;">
+                            <label for="card-holder-email">Card Holder Email:</label>
+                        </th>
+                        <td>
+                            <input type="email" id="card-holder-email" name="email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:right;">
+                            <label for="card-element">Card Details:</label>
+                        </th>
+                        <td>
+                            <!-- placeholder for Stripe Elements -->
+                            <div id="card-element"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                            <p>I authorise Aletheia Ware LLC to send instructions to the financial institution that issued my card to take payments from my card account in accordance with the terms of my agreement with you.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                            <button type="button" id="card-button">Continue</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <script src="https://js.stripe.com/v3/"></script>
+            <script>
+                var stripe = Stripe('{{ .PublishableKey }}');
+                var elements = stripe.elements();
+                var cardElement = elements.create('card');
+                cardElement.mount('#card-element');
+
+                var form = document.getElementById('add-payment-method-form')
+                var payment = document.getElementById('payment')
+                var cardHolderName = document.getElementById('card-holder-name');
+                var cardHolderEmail = document.getElementById('card-holder-email');
+                var cardButton = document.getElementById('card-button');
+
+                cardButton.addEventListener('click', function(ev) {
+                    cardButton.disabled = true;
+                    stripe.confirmCardSetup(
+                        '{{ .ClientSecret }}',
+                        {
+                            payment_method: {
+                                card: cardElement,
+                                billing_details: {
+                                    name: cardHolderName.value,
+                                    email: cardHolderEmail.value,
+                                }
+                            }
+                        }
+                    ).then(function(result) {
+                        if (result.error) {
+                            console.log("Error")
+                            console.log(result.error);
+                        } else {
+                            payment.value = result.setupIntent.payment_method;
+                            form.submit();
+                        }
+                    });
+                });
+            </script>
+            <noscript>
+                <p class="note">Note: This is one of our few webpages that uses Javascript, if you have disabled it, consider temporarily enabling it so our payment processor, Stripe, can do their job. For more information visit <a href="https://stripe.com">Stripe</a>.</p>
+            </noscript>
+
+            <div class="footer">
+                <ul class="nav">
+                    <li><a href="account">Account</a></li>
+                    <li><a href="compose">Compose</a></li>
+                    <li><a href="recent">Recent</a></li>
+                    <li><a href="best">Best</a></li>
+                    <!--<li><a href="digest">Digest</a></li>-->
+                </ul>
+                <ul class="nav">
+                    <li><a href="channels">Channels</a></li>
+                    <li><a href="ledger">Ledger</a></li>
+                </ul>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="mailto:support@aletheiaware.com">Support</a></li>
+                </ul>
+                <p class="meta">© 2020 Aletheia Ware LLC.  All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>

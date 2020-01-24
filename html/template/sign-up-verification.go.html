@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Sign Up - Convey</title>
+    </head>
+
+    <body>
+        <div class="content">
+            <div class="header">
+                <a href="https://aletheiaware.com">
+                    <img src="logo.svg" width="48" height="48" />
+                </a>
+            </div>
+
+            <h1>Sign Up</h1>
+
+            {{ if ne .Error "" }}
+                <p class="error">{{ .Error }}</p>
+            {{ end }}
+
+            <form action="/sign-up-verification" method="post" id="sign-up-verification-form">
+                <!-- TODO(v2) add CSRF token
+                <input type="hidden" id="token" name="token" value="{ { .Token } }" />
+                -->
+                <table class="center">
+                    <tr>
+                        <td colspan="2">
+                            <h2>Step 6: Verify Email</h2>
+
+                            <p>Enter the verification code sent to you email address.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                            <label for="verification">Verification Code:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="verification" name="verification" value="{{ .Verification }}" autocomplete="one-time-code" />
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                            <input type="submit" value="Sign Up" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <div class="footer">
+                <ul class="nav">
+                    <li><a href="account">Account</a></li>
+                    <li><a href="compose">Compose</a></li>
+                    <li><a href="recent">Recent</a></li>
+                    <li><a href="best">Best</a></li>
+                    <!--<li><a href="digest">Digest</a></li>-->
+                </ul>
+                <ul class="nav">
+                    <li><a href="channels">Channels</a></li>
+                    <li><a href="ledger">Ledger</a></li>
+                </ul>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="mailto:support@aletheiaware.com">Support</a></li>
+                </ul>
+                <p class="meta">© 2020 Aletheia Ware LLC.  All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>

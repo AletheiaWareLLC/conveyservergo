@@ -1,0 +1,133 @@
+a {
+    color: deepskyblue;
+}
+a:hover {
+    color: lightskyblue;
+}
+body {
+    background-color: white;
+    font-family: Helvetica, sans-serif;
+}
+h1 {
+    color: deepskyblue;
+    font-size: 1.5em;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    text-align: center;
+}
+h2 {
+    color: deepskyblue;
+    font-size: 1.4em;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    text-align: left;
+}
+h3 {
+    color: deepskyblue;
+    font-size: 1.3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+}
+h4 {
+    color: deepskyblue;
+    font-size: 1.2em;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    text-align: left;
+}
+h5 {
+    color: deepskyblue;
+    font-size: 1.1em;
+    margin-top: 1.4em;
+    margin-bottom: 1.4em;
+    text-align: left;
+}
+h6 {
+    color: deepskyblue;
+    font-size: 1em;
+    margin-top: 1.6em;
+    margin-bottom: 1.6em;
+    text-align: left;
+}
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+p {
+    color: black;
+    text-align: justify;
+}
+p.center {
+    text-align: center;
+}
+p.error {
+    color: red;
+    text-align: center;
+}
+p.meta {
+    color: lightskyblue;
+    font-size: x-small;
+    margin: 3px 0px 3px 0px;
+}
+p.note {
+    background-color: white;
+    border: 1px solid deepskyblue;
+    border-radius: 10px;
+    padding: 5px;
+}
+p.subtitle {
+    text-align: center;
+}
+pre {
+    color: grey;
+}
+samp {
+    color: grey;
+}
+.header {
+    border-bottom: 1px solid skyblue;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.header img {
+    display: block;
+    margin: auto;
+}
+.footer {
+    border-top: 1px solid skyblue;
+    overflow: hidden;
+    padding-top: 10px;
+}
+.footer p {
+    text-align: center;
+}
+.content {
+    max-width: 960px;
+    margin: auto;
+    padding: 10px;
+}
+.listing {
+    color: lightskyblue;
+}
+.nav {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+.nav li {
+    display: inline;
+}
+.nav a {
+    color: deepskyblue;
+    display: inline-block;
+    padding: 8px;
+    text-decoration: none;
+}
+.nav a:hover {
+    color: lightskyblue;
+}
+.reply {
+    list-style-type: none;
+}

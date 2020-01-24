@@ -1,0 +1,11 @@
+{{ define "listing" }}
+    <ol class="listing">
+        {{ range $key, $value := .Listings }}
+            <li>
+                <a href="conversation?hash={{ $value.ConversationHash }}">{{ $value.Topic }}</a>
+                <br />
+                <p class="meta">{{ $value.Timestamp }} {{ $value.Author }} {{ template "yield" $value.Yield }}</p>
+            </li>
+        {{ end }}
+    </ol>
+{{ end }}
