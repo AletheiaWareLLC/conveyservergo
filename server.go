@@ -184,7 +184,9 @@ func (s *Server) Start(node *bcgo.Node) error {
 		}
 	}
 
+	go ledger.Start()
 	ledger.TriggerUpdate()
+	defer ledger.Stop()
 
 	// Start Periodic Validation Chains
 	go hourly.Start(node, bcgo.THRESHOLD_PERIOD_HOUR, s.Listener)
