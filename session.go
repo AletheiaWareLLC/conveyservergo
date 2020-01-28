@@ -171,7 +171,7 @@ func CreateCookie(name, value string, timeout time.Duration) *http.Cookie {
 		Name:     name,
 		Value:    value,
 		Expires:  time.Now().Add(timeout),
-		Secure:   !bcgo.IsDebug(),
+		Secure:   bcgo.IsLive(),
 		HttpOnly: true,
 	}
 }

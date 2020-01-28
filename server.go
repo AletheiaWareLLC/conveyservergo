@@ -195,7 +195,7 @@ func (s *Server) Start(node *bcgo.Node) error {
 	defer weekly.Stop()
 	go yearly.Start(node, bcgo.THRESHOLD_PERIOD_YEAR, s.Listener)
 	defer yearly.Stop()
-	if !bcgo.IsDebug() {
+	if bcgo.IsLive() {
 		go decennially.Start(node, bcgo.THRESHOLD_PERIOD_DECADE, s.Listener)
 		defer decennially.Stop()
 		go centennially.Start(node, bcgo.THRESHOLD_PERIOD_CENTURY, s.Listener)
