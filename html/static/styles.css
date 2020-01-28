@@ -9,7 +9,7 @@ body {
     font-family: Helvetica, sans-serif;
 }
 div.message {
-    min-width: 200px;
+    min-width: 320px;
     overflow-x: visible;
 }
 h1 {
@@ -54,9 +54,8 @@ h6 {
     margin-bottom: 1.6em;
     text-align: left;
 }
-table.center {
-    margin-left: auto;
-    margin-right: auto;
+ul {
+    padding-left: 20px;
 }
 p {
     color: black;
@@ -88,6 +87,10 @@ pre {
 }
 samp {
     color: grey;
+}
+table.center {
+    margin-left: auto;
+    margin-right: auto;
 }
 .header {
     border-bottom: 1px solid skyblue;
