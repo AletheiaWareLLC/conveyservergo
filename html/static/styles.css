@@ -8,6 +8,10 @@ body {
     background-color: white;
     font-family: Helvetica, sans-serif;
 }
+div.message {
+    min-width: 200px;
+    overflow-x: visible;
+}
 h1 {
     color: deepskyblue;
     font-size: 1.5em;

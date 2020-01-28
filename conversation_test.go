@@ -69,7 +69,7 @@ func TestConversationHandler(t *testing.T) {
 		}
 
 		actual := response.Body.String()
-		expected := conversationHashString + "1970-01-01 00:00:00Test123<p>Foo</p>"
+		expected := conversationHashString + `1970-01-01 00:00:00Test123<p>Foo</p>`
 
 		if actual != expected {
 			t.Errorf("Wrong response; expected '%s', got '%s'", expected, actual)
@@ -110,7 +110,7 @@ func TestConversationHandler(t *testing.T) {
 		}
 
 		actual := response.Body.String()
-		expected := conversationHashString + "1970-01-01 00:00:00Test123<p>Foo</p>1970-01-01 00:00:00<p>Bar</p>"
+		expected := conversationHashString + `1970-01-01 00:00:00Test123<p>Foo</p>1970-01-01 00:00:00<p>Bar</p>`
 
 		if actual != expected {
 			t.Errorf("Wrong response; expected '%s', got '%s'", expected, actual)
@@ -159,7 +159,7 @@ func TestConversationHandler(t *testing.T) {
 		}
 
 		actual := response.Body.String()
-		expected := conversationHashString + "1970-01-01 00:00:00Test123<p>Foo</p>1970-01-01 00:00:00<p>Bar</p>1970-01-01 00:00:00<p>Baz</p>"
+		expected := conversationHashString + `1970-01-01 00:00:00Test123<p>Foo</p>1970-01-01 00:00:00<p>Bar</p>1970-01-01 00:00:00<p>Baz</p>`
 
 		if actual != expected {
 			t.Errorf("Wrong response; expected '%s', got '%s'", expected, actual)

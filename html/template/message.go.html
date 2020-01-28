@@ -1,10 +1,12 @@
 {{ define "message" }}
-    <p class="meta">{{ .Timestamp }} {{ .Author }} {{ template "yield" .Yield }}</p>
+    <div class="message">
+        <p class="meta">{{ .Timestamp }} {{ .Author }} {{ template "yield" .Yield }}</p>
 
-    {{ .Content }}
+        {{ .Content }}
 
-    <p><small><a href="compose?conversation={{ .ConversationHash }}&message={{ .MessageHash }}">reply</a></small></p>
+        <p><small><a href="compose?conversation={{ .ConversationHash }}&message={{ .MessageHash }}">reply</a></small></p>
 
-    <!-- TODO(v3) add tag button -->
-    <!-- TODO(v3) if signed in user is message author show edit button -->
+        <!-- TODO(v3) add tag button -->
+        <!-- TODO(v3) if signed in user is message author show edit button -->
+    </div>
 {{ end }}
