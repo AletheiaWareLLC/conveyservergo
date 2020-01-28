@@ -27,7 +27,9 @@
 
             {{ template "listing" . }}
 
-            <p class="center"><a href="best?period={{ .Period }}&limit={{ .Limit }}">More</a></p>
+            {{ if gt (len .Listings) 0 }}
+                <p class="center"><a href="best?period={{ .Period }}&limit={{ .Limit }}">More</a></p>
+            {{ end }}
 
             {{ if ne .Period "day" }}
                 <p class="center"><a href="best?period=day">Best of the Day</a></p>

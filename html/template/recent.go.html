@@ -21,7 +21,9 @@
 
             {{ template "listing" . }}
 
-            <p class="center"><a href="recent?limit={{ .Limit }}">More</a></p>
+            {{ if gt (len .Listings) 0 }}
+                <p class="center"><a href="recent?limit={{ .Limit }}">More</a></p>
+            {{ end }}
 
             <div class="footer">
                 <ul class="nav">
