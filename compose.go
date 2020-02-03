@@ -22,6 +22,7 @@ import (
 	"errors"
 	"github.com/AletheiaWareLLC/bcgo"
 	"github.com/AletheiaWareLLC/conveygo"
+	"github.com/AletheiaWareLLC/conveygo/html"
 	"html/template"
 	"log"
 	"net/http"
@@ -54,7 +55,7 @@ func CreateComposeTemplate(messages conveygo.MessageStore, conversation, message
 			return nil, err
 		}
 		if err := messages.GetMessage(conversationHash, messageHash, func(hash []byte, timestamp uint64, author string, cost uint64, message *conveygo.Message) error {
-			content, err := ContentToHTML(message)
+			content, err := html.ContentToHTML(message)
 			if err != nil {
 				return err
 			} else {

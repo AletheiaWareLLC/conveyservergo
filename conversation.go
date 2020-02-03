@@ -20,6 +20,7 @@ import (
 	"encoding/base64"
 	"github.com/AletheiaWareLLC/bcgo"
 	"github.com/AletheiaWareLLC/conveygo"
+	"github.com/AletheiaWareLLC/conveygo/html"
 	"html/template"
 	"log"
 	"net/http"
@@ -98,7 +99,7 @@ func ConversationHandler(sessions SessionStore, messages conveygo.MessageStore, 
 			// TODO(v5) if message is encrypted only show if user is signed in, and alias is granted access
 			replies := make(map[string]*ReplyTemplate)
 			if err := messages.GetMessage(hash, nil, func(hash []byte, timestamp uint64, author string, cost uint64, message *conveygo.Message) error {
-				content, err := ContentToHTML(message)
+				content, err := html.ContentToHTML(message)
 				if err != nil {
 					return err
 				}

@@ -18,6 +18,7 @@ package main
 
 import (
 	"github.com/AletheiaWareLLC/conveygo"
+	"github.com/AletheiaWareLLC/conveygo/html"
 	"html/template"
 	"log"
 	"net/http"
@@ -55,7 +56,7 @@ func PreviewHandler(sessions SessionStore, messages conveygo.MessageStore, ledge
 						Cost:    draft.MessageCost,
 					}
 
-					content, err := ContentToHTML(draft.Message)
+					content, err := html.ContentToHTML(draft.Message)
 					if err != nil {
 						log.Println(err)
 						http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
