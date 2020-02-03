@@ -44,18 +44,28 @@ func BestHandler(sessions SessionStore, messages conveygo.MessageStore, template
 		switch r.Method {
 		case "GET":
 			now := time.Now()
-			var since uint64
+			var from uint64
+			var to uint64
 			period := r.FormValue("period")
 			switch period {
 			case "all":
-				since = 0
+				from = 0
+				to = uint64(now.UnixNano())
 			case "year":
-				since = uint64(now.Truncate(8766 * time.Hour).UnixNano())
+				start := now.Truncate(bcgo.PERIOD_YEARLY)
+				from = uint64(start.UnixNano())
+				to = uint64(start.Add(bcgo.PERIOD_YEARLY).UnixNano())
+			case "week":
+				start := now.Truncate(bcgo.PERIOD_WEEKLY)
+				from = uint64(start.UnixNano())
+				to = uint64(start.Add(bcgo.PERIOD_WEEKLY).UnixNano())
 			default:
 				period = "day"
 				fallthrough
 			case "day":
-				since = uint64(now.Truncate(24 * time.Hour).UnixNano())
+				start := now.Truncate(bcgo.PERIOD_DAILY)
+				from = uint64(start.UnixNano())
+				to = uint64(start.Add(bcgo.PERIOD_DAILY).UnixNano())
 			}
 			limit := uint(8)
 			l := r.FormValue("limit")
@@ -67,7 +77,7 @@ func BestHandler(sessions SessionStore, messages conveygo.MessageStore, template
 				}
 			}
 
-			conversations, err := messages.GetAllConversations(since)
+			conversations, err := messages.GetAllConversations(from, to)
 			if err != nil {
 				log.Println(err)
 				http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)

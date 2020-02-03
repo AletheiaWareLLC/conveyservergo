@@ -19,6 +19,8 @@
 
             {{ if eq .Period "day" }}
                 <h1>Best of the Day</h1>
+            {{ else if eq .Period "week" }}
+                <h1>Best of the Week</h1>
             {{ else if eq .Period "year" }}
                 <h1>Best of the Year</h1>
             {{ else if eq .Period "all" }}
@@ -33,6 +35,10 @@
 
             {{ if ne .Period "day" }}
                 <p class="center"><a href="best?period=day">Best of the Day</a></p>
+            {{ end }}
+
+            {{ if ne .Period "week" }}
+                <p class="center"><a href="best?period=week">Best of the Week</a></p>
             {{ end }}
 
             {{ if ne .Period "year" }}
