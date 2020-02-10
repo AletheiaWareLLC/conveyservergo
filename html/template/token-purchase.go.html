@@ -32,7 +32,7 @@
                         <th style="text-align:right;">Token Bundle:</th>
                         <td>
                             {{ range $key, $value := .TokenBundle }}
-                                <input type="radio" name="product" value="{{ $value.ID }}" checked="{{ eq $key 0 }}">{{ $value.Quantity }} tokens for {{ $value.Price }} ({{ $value.UnitPrice }} each)<br />
+                                <input type="radio" name="product" value="{{ $value.ID }}" {{ if eq $key 0 }}checked{{ end }}>{{ $value.Quantity }} tokens for {{ $value.Price }} ({{ $value.UnitPrice }} each)<br />
                             {{ end }}
                         </td>
                     </tr>
@@ -40,7 +40,7 @@
                         <th style="text-align:right;">Payment Method:</th>
                         <td>
                             {{ range $key, $value := .PaymentMethod }}
-                                <input type="radio" name="payment-method" value="{{ $value.ID }}" checked="{{ eq $key 0 }}">{{ $value.BillingDetails.Name }} **** **** **** {{ $value.Card.Last4 }} {{ $value.Card.ExpMonth }}/{{ $value.Card.ExpYear }}<br />
+                                <input type="radio" name="payment-method" value="{{ $value.ID }}" {{ if eq $key 0 }}checked{{ end }}>{{ $value.BillingDetails.Name }} **** **** **** {{ $value.Card.Last4 }} {{ $value.Card.ExpMonth }}/{{ $value.Card.ExpYear }}<br />
                             {{ end }}
                         </td>
                     </tr>
