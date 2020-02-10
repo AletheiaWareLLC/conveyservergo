@@ -18,8 +18,8 @@ set -e
 set -x
 
 go fmt $GOPATH/src/github.com/AletheiaWareLLC/*
-go vet $GOPATH/src/github.com/AletheiaWareLLC/{aliasgo,aliasservergo,bcgo,bcnetgo,conveygo,conveyservergo,cryptogo,financego,netgo}
-go test $GOPATH/src/github.com/AletheiaWareLLC/{aliasgo,aliasservergo,bcgo,bcnetgo,conveygo,conveyservergo,cryptogo,financego,netgo}
+go vet $GOPATH/src/github.com/AletheiaWareLLC/{aliasgo,aliasservergo,bcgo,bcnetgo,conveygo,conveyservergo,cryptogo,financego,netgo,pdfgo}
+go test $GOPATH/src/github.com/AletheiaWareLLC/{aliasgo,aliasservergo,bcgo,bcnetgo,conveygo,conveyservergo,cryptogo,financego,netgo,pdfgo}
 env GOOS=linux GOARCH=amd64 go build -o $GOPATH/bin/conveyservergo-linux-amd64 github.com/AletheiaWareLLC/conveyservergo
 
 (cd $GOPATH/src/github.com/AletheiaWareLLC/conveyservergo/ && zip -r html.zip html)
