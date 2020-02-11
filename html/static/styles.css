@@ -54,9 +54,6 @@ h6 {
     margin-bottom: 1.6em;
     text-align: left;
 }
-ul {
-    padding-left: 20px;
-}
 p {
     color: black;
     text-align: justify;
@@ -91,6 +88,17 @@ samp {
 table.center {
     margin-left: auto;
     margin-right: auto;
+}
+table.features {
+    table-layout: fixed;
+    text-align: center;
+    width: 100%;
+}
+td.features {
+    width: 50%;
+}
+ul {
+    padding-left: 20px;
 }
 .header {
     border-bottom: 1px solid skyblue;

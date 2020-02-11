@@ -1,0 +1,85 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="480" height="480">
+    <defs>
+        <rect id="fullbrick" x="0" y="0" width="48" height="20" fill="white" />
+        <rect id="halfbrick" x="0" y="0" width="24" height="20" fill="white" />
+        <g id="block">
+            <rect x="0" y="0" width="224" height="174" fill="black" />
+            <!-- 1 -->
+            <use xlink:href="#fullbrick" x="0" y="0" />
+            <use xlink:href="#fullbrick" x="50" y="0" />
+            <use xlink:href="#fullbrick" x="100" y="0" />
+            <use xlink:href="#fullbrick" x="150" y="0" />
+            <use xlink:href="#halfbrick" x="200" y="0" />
+            <!-- 2 -->
+            <use xlink:href="#halfbrick" x="0" y="22" />
+            <use xlink:href="#fullbrick" x="26" y="22" />
+            <use xlink:href="#fullbrick" x="76" y="22" />
+            <use xlink:href="#fullbrick" x="126" y="22" />
+            <use xlink:href="#fullbrick" x="176" y="22" />
+            <!-- 3 -->
+            <use xlink:href="#fullbrick" x="0" y="44" />
+            <use xlink:href="#fullbrick" x="50" y="44" />
+            <use xlink:href="#fullbrick" x="100" y="44" />
+            <use xlink:href="#fullbrick" x="150" y="44" />
+            <use xlink:href="#halfbrick" x="200" y="44" />
+            <!-- 4 -->
+            <use xlink:href="#halfbrick" x="0" y="66" />
+            <use xlink:href="#fullbrick" x="26" y="66" />
+            <use xlink:href="#fullbrick" x="76" y="66" />
+            <use xlink:href="#fullbrick" x="126" y="66" />
+            <use xlink:href="#fullbrick" x="176" y="66" />
+            <!-- 5 -->
+            <use xlink:href="#fullbrick" x="0" y="88" />
+            <use xlink:href="#fullbrick" x="50" y="88" />
+            <use xlink:href="#fullbrick" x="100" y="88" />
+            <use xlink:href="#fullbrick" x="150" y="88" />
+            <use xlink:href="#halfbrick" x="200" y="88" />
+            <!-- 6 -->
+            <use xlink:href="#halfbrick" x="0" y="110" />
+            <use xlink:href="#fullbrick" x="26" y="110" />
+            <use xlink:href="#fullbrick" x="76" y="110" />
+            <use xlink:href="#fullbrick" x="126" y="110" />
+            <use xlink:href="#fullbrick" x="176" y="110" />
+            <!-- 7 -->
+            <use xlink:href="#fullbrick" x="0" y="132" />
+            <use xlink:href="#fullbrick" x="50" y="132" />
+            <use xlink:href="#fullbrick" x="100" y="132" />
+            <use xlink:href="#fullbrick" x="150" y="132" />
+            <use xlink:href="#halfbrick" x="200" y="132" />
+            <!-- 8 -->
+            <use xlink:href="#halfbrick" x="0" y="154" />
+            <use xlink:href="#fullbrick" x="26" y="154" />
+            <use xlink:href="#fullbrick" x="76" y="154" />
+            <use xlink:href="#fullbrick" x="126" y="154" />
+            <use xlink:href="#fullbrick" x="176" y="154" />
+            <!-- Holes -->
+            <g fill="black">
+                <circle cx="212" cy="10" r="6" />
+                <circle cx="12" cy="164" r="6" />
+            </g>
+            <!-- Chains -->
+            <g fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+                <line x1="212" y1="10" x2="242" y2="-20" />
+                <line x1="-18" y1="194" x2="12" y2="164" />
+            </g>
+        </g>
+    </defs>
+    <mask id="mask">
+        <rect x="0" y="0" width="480" height="480" fill="black" />
+        <circle cx="240" cy="240" r="220" fill="white" />
+    </mask>
+    <g fill="lightskyblue" stroke="none">
+        <circle cx="240" cy="240" r="220" />
+    </g>
+    <!-- Guide
+    <g fill="none" stroke="grey" stroke-width=".1">
+        <polyline points="240,0 240,480" />
+        <polyline points="0,240 480,240" />
+    </g> -->
+    <g mask="url(#mask)">
+        <use xlink:href="#block" transform="translate(128,153)" />
+        <use xlink:href="#block" transform="translate(-102,337)" />
+        <use xlink:href="#block" transform="translate(358,-31)" />
+    </g>
+</svg>
