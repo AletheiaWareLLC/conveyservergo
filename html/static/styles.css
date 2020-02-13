@@ -12,6 +12,12 @@ div.message {
     min-width: 320px;
     overflow-x: visible;
 }
+embed.banner {
+    display: block;
+    margin: 10px auto 0px auto;
+    width: 50%;
+    height: auto;
+}
 h1 {
     color: deepskyblue;
     font-size: 1.5em;
@@ -53,6 +59,10 @@ h6 {
     margin-top: 1.6em;
     margin-bottom: 1.6em;
     text-align: left;
+}
+img.feature {
+    width: 100%;
+    height: auto;
 }
 p {
     color: black;
