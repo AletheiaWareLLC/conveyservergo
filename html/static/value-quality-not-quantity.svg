@@ -10,7 +10,7 @@
         <rect x="0" y="0" width="480" height="480" fill="black" />
         <rect x="60" y="239" width="80" height="80" fill="white" />
     </mask>
-    <g fill="lightskyblue" stroke="none">
+    <g fill="deepskyblue" stroke="none">
         <circle cx="240" cy="240" r="220" />
     </g>
     <!-- Diamond -->

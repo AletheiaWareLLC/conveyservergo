@@ -111,7 +111,7 @@ ul {
     padding-left: 20px;
 }
 .header {
-    border-bottom: 1px solid skyblue;
+    border-bottom: 1px solid deepskyblue;
     overflow: hidden;
     padding-bottom: 10px;
 }
@@ -120,7 +120,7 @@ ul {
     margin: auto;
 }
 .footer {
-    border-top: 1px solid skyblue;
+    border-top: 1px solid deepskyblue;
     overflow: hidden;
     padding-top: 10px;
 }

@@ -69,7 +69,7 @@
         <rect x="0" y="0" width="480" height="480" fill="black" />
         <circle cx="240" cy="240" r="220" fill="white" />
     </mask>
-    <g fill="lightskyblue" stroke="none">
+    <g fill="deepskyblue" stroke="none">
         <circle cx="240" cy="240" r="220" />
     </g>
     <!-- Guide

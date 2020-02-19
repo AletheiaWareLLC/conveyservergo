@@ -38,7 +38,7 @@
         <polyline points="372,0 372,290" />
     </g> -->
     <!-- Convey -->
-    <g fill="none" stroke="lightskyblue" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
+    <g fill="none" stroke="deepskyblue" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
         <!-- C --><polyline points="36,130 12,140 12,150 36,160" />
         <!-- O --><polygon points="72,115 48,125 48,165 72,175" />
         <!-- N --><polyline points="84,180 84,110 108,100 108,190" />
@@ -47,7 +47,7 @@
         <!-- Y --><polyline points="192,65 192,145 216,145 216,55 216,235 192,225" />
     </g>
     <!-- Sound Waves -->
-    <g fill="none" stroke="lightskyblue" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
+    <g fill="none" stroke="deepskyblue" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
         <path d="M 240,110 Q 252,145 240,180" stroke-width="2" />
         <path d="M 312,60 Q 336,145 312,230" stroke-width="8" />
     </g>
