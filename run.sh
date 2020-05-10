@@ -17,9 +17,9 @@
 set -e
 set -x
 
-go fmt $GOPATH/src/github.com/AletheiaWareLLC/{aliasgo,aliasservergo,bcgo,bcnetgo,conveygo,conveyservergo,cryptogo,financego,netgo,pdfgo}
-go vet $GOPATH/src/github.com/AletheiaWareLLC/{aliasgo,aliasservergo,bcgo,bcnetgo,conveygo,conveyservergo,cryptogo,financego,netgo,pdfgo}
-go test $GOPATH/src/github.com/AletheiaWareLLC/{aliasgo,aliasservergo,bcgo,bcnetgo,conveygo,conveyservergo,cryptogo,financego,netgo,pdfgo}
+go fmt $GOPATH/src/github.com/AletheiaWareLLC/conveyservergo
+go vet $GOPATH/src/github.com/AletheiaWareLLC/conveyservergo
+go test $GOPATH/src/github.com/AletheiaWareLLC/conveyservergo
 export BETA=true
 export LIVE=false
 export HTTPS=false
