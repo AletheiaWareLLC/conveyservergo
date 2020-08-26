@@ -74,12 +74,7 @@ func (s *Server) Init() (*bcgo.Node, error) {
 }
 
 func (s *Server) LoadChannel(node *bcgo.Node, channel *bcgo.Channel) {
-	// Load channel
-	if err := channel.LoadCachedHead(s.Cache); err != nil {
-		log.Println(err)
-	}
-	// Pull channel
-	if err := channel.Pull(s.Cache, s.Network); err != nil {
+	if err := channel.Refresh(s.Cache, s.Network); err != nil {
 		log.Println(err)
 	}
 	// Add channel to node
